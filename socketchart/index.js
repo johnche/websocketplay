@@ -24,9 +24,7 @@ wss.on('connection', function connection(ws) {
                 client.send(message);
             }
         });
-    })  
-
-    ws.send('Connected');
+    });
 });
 
 
@@ -38,6 +36,10 @@ app.use('/static', express.static(__dirname + '/static'));
 
 app.get('/datasender', function(req, res) {
 	res.sendFile('data.html', {root: __dirname});
+});
+
+app.get('/sine', function(req, res) {
+	res.sendFile('sine.html', {root: __dirname});
 });
 
 http.listen(port, function() {

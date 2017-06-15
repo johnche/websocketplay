@@ -1,20 +1,13 @@
 <!DOCTYPE HTML>
 <link rel="stylesheet" href="static/chartist-js/dist/chartist.min.css">
-<pre id="log"></pre>
-<div class="ct-chart ct-minor-seventh" id="chart1"></div>
+<div style="display:inline-block;width:49%">
+	<div class="ct-chart ct-minor-seventh" id="chart1"></div>
+</div>
+<div style="display:inline-block;width:49%;max-height:100%;overflow:visible">
+	<div>
+		<pre id="data"></pre>
+	</div>
+</div>
 
 <script src="static/chartist-js/dist/chartist.min.js"></script>
 <script src="static/charts.js"></script>
-<script>
-	const socket = new WebSocket('ws//localhost:8000');
-	const logger = document.getElementById('log');
-
-	socket.addEventListener('open', function(event) {
-		logger.innerHTML = event.data + "\n";
-	});
-
-	socket.addEventListener('message', function(event) {
-		console.log(event.data);
-		linechart.update(0, null, null);
-	});
-</script>
